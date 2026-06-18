@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArchMark } from "./logo";
 
 const TONES: Record<string, string> = {
@@ -9,9 +10,8 @@ const TONES: Record<string, string> = {
 };
 
 /**
- * A composed visual placeholder standing in for the brand's natural-light food
- * photography. Renders an intentional gradient canvas with the arch motif and an
- * optional caption — never a broken image.
+ * A composed visual — displays a real photo when `src` is provided, otherwise
+ * falls back to the intentional gradient placeholder with arch motif.
  */
 export function Visual({
   tone = "warm",
@@ -19,36 +19,52 @@ export function Visual({
   className = "",
   ratio = "aspect-[4/3]",
   mark = true,
+  src,
+  alt = "",
 }: {
   tone?: keyof typeof TONES | string;
   caption?: string;
   className?: string;
   ratio?: string;
   mark?: boolean;
+  src?: string;
+  alt?: string;
 }) {
   const dark = tone === "olive" || tone === "dark";
+
   return (
     <div
-      className={`group relative overflow-hidden bg-gradient-to-br ${
-        TONES[tone] ?? TONES.warm
-      } ${ratio} ${className}`}
+      className={`group relative overflow-hidden ${ratio} ${className} ${
+        src ? "bg-stone-100" : `bg-gradient-to-br ${TONES[tone] ?? TONES.warm}`
+      }`}
     >
-      {/* soft vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_70%_20%,rgba(255,255,255,0.18),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_30%_100%,rgba(0,0,0,0.22),transparent_60%)]" />
-
-      {mark && (
-        <ArchMark
-          className={`absolute left-1/2 top-1/2 h-16 w-20 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700 group-hover:scale-105 ${
-            dark ? "text-warm-white/25" : "text-charcoal/15"
-          }`}
+      {src ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
+      ) : (
+        <>
+          {/* soft vignette */}
+          <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_70%_20%,rgba(255,255,255,0.18),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_30%_100%,rgba(0,0,0,0.22),transparent_60%)]" />
+          {mark && (
+            <ArchMark
+              className={`absolute left-1/2 top-1/2 h-16 w-20 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700 group-hover:scale-105 ${
+                dark ? "text-warm-white/25" : "text-charcoal/15"
+              }`}
+            />
+          )}
+        </>
       )}
 
       {caption && (
         <span
-          className={`absolute bottom-4 left-5 text-[0.62rem] uppercase tracking-[0.24em] ${
-            dark ? "text-warm-white/70" : "text-charcoal/55"
+          className={`absolute bottom-4 left-5 z-10 text-[0.62rem] uppercase tracking-[0.24em] ${
+            src ? "text-white/80" : dark ? "text-warm-white/70" : "text-charcoal/55"
           }`}
         >
           {caption}
