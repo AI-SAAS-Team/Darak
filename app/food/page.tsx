@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     "Natural light. Visible textures. Real execution. A look at the food DARAK systems produce — extraordinary, and reproducible every day.",
 };
 
-const GALLERY: { tone: string; caption: string; span?: string; ratio?: string }[] = [
-  { tone: "warm", caption: "Slow-braised lamb · pomegranate", span: "md:col-span-2 md:row-span-2", ratio: "aspect-square md:aspect-auto md:h-full" },
-  { tone: "stone", caption: "Heritage tomato · stone fruit" },
-  { tone: "olive", caption: "Garden greens · herb oil" },
-  { tone: "sand", caption: "Stone-baked sourdough" },
-  { tone: "dark", caption: "Seared catch · saffron" },
-  { tone: "warm", caption: "Citrus & olive · cold-pressed", span: "md:col-span-2", ratio: "aspect-[16/9]" },
-  { tone: "stone", caption: "Recovery bowl · macro-balanced" },
+const GALLERY: { tone: string; caption: string; span?: string; ratio?: string; src?: string; alt?: string }[] = [
+  { tone: "warm", caption: "Slow-braised lamb · pomegranate", span: "md:col-span-2 md:row-span-2", ratio: "aspect-square md:aspect-auto md:h-full", src: "/food-1.jpg", alt: "Slow-braised lamb shank with pomegranate on dark plate" },
+  { tone: "stone", caption: "Heritage tomato · stone fruit",   src: "/food-2.jpg", alt: "Heritage heirloom tomatoes with stone fruit on slate" },
+  { tone: "olive", caption: "Garden greens · herb oil",        src: "/food-3.jpg", alt: "Garden greens with herb oil in ceramic bowl" },
+  { tone: "sand",  caption: "Stone-baked sourdough",           src: "/food-4.jpg", alt: "Artisan sourdough loaf with butter on linen" },
+  { tone: "dark",  caption: "Seared catch · saffron",          src: "/food-5.jpg", alt: "Seared sea bass with saffron sauce on dark plate" },
+  { tone: "warm",  caption: "Citrus & olive · cold-pressed",  span: "md:col-span-2", ratio: "aspect-[16/9]", src: "/food-6.jpg", alt: "Blood oranges, lemons and olives with cold-pressed olive oil on travertine" },
+  { tone: "stone", caption: "Recovery bowl · macro-balanced", src: "/food-7.jpg", alt: "Macro-balanced recovery bowl with salmon, edamame and avocado" },
 ];
 
 export default function FoodPage() {
@@ -45,6 +45,8 @@ export default function FoodPage() {
                 mark={false}
                 ratio={g.ratio ?? "aspect-[4/3]"}
                 className={`${g.span ?? ""} h-full`}
+                src={g.src}
+                alt={g.alt}
               />
             ))}
           </div>

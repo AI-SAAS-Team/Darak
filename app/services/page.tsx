@@ -36,6 +36,8 @@ export default function ServicesPage() {
               }`}
             >
               <Visual
+                src={["/service-upgrade.jpg", "/service-placement.jpg"][i] ?? undefined}
+                alt={svc.title}
                 tone={i % 2 === 0 ? "warm" : "stone"}
                 ratio="aspect-[4/3]"
                 caption={svc.title}
@@ -105,7 +107,7 @@ export default function ServicesPage() {
       {/* Nutrition */}
       <Section>
         <Container className="grid gap-12 md:grid-cols-2 md:items-center md:gap-20">
-          <Visual tone="sand" ratio="aspect-[4/3]" caption="Performance plating" />
+          <Visual src="/nutrition.jpg" alt="Performance plating — salmon with greens" ratio="aspect-[4/3]" caption="Performance plating" />
           <div>
             <Eyebrow>Nutrition</Eyebrow>
             <h2 className="display mt-5 text-3xl leading-tight md:text-4xl">

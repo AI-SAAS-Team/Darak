@@ -83,7 +83,7 @@ export default function ApproachPage() {
       {/* Differentiators */}
       <Section>
         <Container className="grid gap-14 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-20">
-          <Visual tone="olive" ratio="aspect-[4/5]" caption="On-site execution · day 12" />
+          <Visual src="/about-execution.jpg" alt="Plated scallops on dark matte plate — private kitchen" tone="olive" ratio="aspect-[4/5]" caption="On-site execution · day 12" />
           <div>
             <Eyebrow>What Makes Us Different</Eyebrow>
             <h2 className="display mt-5 text-3xl leading-tight md:text-4xl">
