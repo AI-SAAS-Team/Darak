@@ -389,6 +389,46 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ══ OUR CHEF ══ */}
+      <Section>
+        <Container className="grid gap-14 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-20">
+          <Visual tone="dark" ratio="aspect-[4/5]" caption="Our Chef · 25 years of mastery" />
+          <div>
+            <Eyebrow>Our Chef</Eyebrow>
+            <h2 className="display mt-5 text-4xl leading-tight md:text-5xl">
+              25 years of experience.{" "}
+              <span className="text-gold-soft italic">Michelin-starred standards.</span>
+            </h2>
+            <p className="mt-6 text-[0.95rem] leading-relaxed text-muted">
+              Born in Morocco and trained in France, our chef has spent over 25 years mastering his craft in high-level kitchens, including Michelin-starred restaurants.
+            </p>
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">
+              After earning his CAP, he worked alongside renowned chefs such as Joël Robuchon, Christian Constant and Gordon Ramsay, building a strong foundation in precision, discipline and excellence.
+            </p>
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">
+              Today, he is a chef trainer and consultant, specialized in menu creation, team training and premium culinary operations.
+            </p>
+            <ul className="mt-8 space-y-3">
+              {[
+                "French gastronomy & fine dining",
+                "Healthy & performance-focused cuisine",
+                "Italian & Oriental cuisine",
+                "Menu creation & team training",
+                "Premium culinary operations",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-[0.9rem] text-charcoal/80">
+                  <Icon name="check" className="h-4 w-4 shrink-0 text-olive" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <blockquote className="mt-10 border-l-2 border-gold/40 pl-6 display text-xl italic text-charcoal/75">
+              &ldquo;From French gastronomy to healthy, performance-focused cuisine — one goal: consistency at the highest level.&rdquo;
+            </blockquote>
+          </div>
+        </Container>
+      </Section>
+
       {/* ══ CONTACT ══ */}
       <section id="contact" className="scroll-mt-20 bg-warm-white">
         <Container className="py-20 md:py-28">
