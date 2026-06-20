@@ -15,6 +15,37 @@ import {
   TECHNOLOGY,
 } from "@/lib/content";
 
+const SIGNATURE_DISHES = [
+  {
+    src: "/food-1.jpg",
+    alt: "Slow-braised lamb shank with pomegranate",
+    name: "Slow-braised Lamb",
+    sub: "Pomegranate reduction · toasted pine nuts",
+    tags: ["Michelin Technique", "Rich in Iron", "Performance Meal"],
+  },
+  {
+    src: "/food-5.jpg",
+    alt: "Seared sea bass with saffron sauce",
+    name: "Seared Sea Bass",
+    sub: "Saffron & citrus velouté · micro herbs",
+    tags: ["High Protein", "Anti-Inflammatory", "Clean Ingredients"],
+  },
+  {
+    src: "/food-7.jpg",
+    alt: "Recovery bowl with salmon, edamame and avocado",
+    name: "Recovery Bowl",
+    sub: "Salmon · edamame · avocado · sesame",
+    tags: ["Macro-Balanced", "Recovery", "Omega-3 Rich"],
+  },
+];
+
+const QUALITY_PILLARS = [
+  { label: "High Protein", sub: "To build & recover" },
+  { label: "Balanced Macros", sub: "For energy & performance" },
+  { label: "Clean Ingredients", sub: "No junk. Ever." },
+  { label: "Michelin Technique", sub: "Every single plate" },
+];
+
 const GALLERY: { tone: string; caption: string; span?: string; ratio?: string; src?: string; alt?: string }[] = [
   { tone: "warm", caption: "Slow-braised lamb · pomegranate", span: "md:col-span-2 md:row-span-2", ratio: "aspect-square md:aspect-auto md:h-full", src: "/food-1.jpg", alt: "Slow-braised lamb shank with pomegranate on dark plate" },
   { tone: "stone", caption: "Heritage tomato · stone fruit", src: "/food-2.jpg", alt: "Heritage heirloom tomatoes with stone fruit on slate" },
@@ -167,6 +198,71 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
+
+      {/* ══ SIGNATURE DISHES ══ */}
+      <section className="bg-sand/30 py-20 md:py-28">
+        <Container>
+          <div className="grid gap-14 md:grid-cols-[1fr_2.6fr] md:gap-20 md:items-start">
+            {/* Left sticky text */}
+            <div className="md:sticky md:top-28">
+              <Eyebrow>What We Create</Eyebrow>
+              <h2 className="display mt-5 text-4xl leading-tight md:text-5xl">
+                Real food.
+                <br />
+                <span className="text-gold-soft italic">Real results.</span>
+              </h2>
+              <p className="mt-5 text-[0.95rem] leading-relaxed text-muted max-w-xs">
+                Every dish is crafted with precision, using clean ingredients and chef-level technique.
+              </p>
+              {/* Quality pillars */}
+              <ul className="mt-10 space-y-4">
+                {QUALITY_PILLARS.map((p) => (
+                  <li key={p.label} className="flex items-start gap-3">
+                    <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-olive" />
+                    <div>
+                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-charcoal">{p.label}</p>
+                      <p className="text-[0.8rem] text-muted">{p.sub}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Dish cards */}
+            <div className="grid gap-5 sm:grid-cols-3">
+              {SIGNATURE_DISHES.map((dish) => (
+                <article key={dish.name} className="group flex flex-col overflow-hidden bg-warm-white shadow-[0_2px_20px_rgba(28,27,25,0.06)]">
+                  <div className="relative aspect-[3/4] overflow-hidden">
+                    <Image
+                      src={dish.src}
+                      alt={dish.alt}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, 33vw"
+                    />
+                    {/* subtle bottom gradient */}
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/30 to-transparent" />
+                  </div>
+                  <div className="flex flex-col flex-1 p-5">
+                    <h3 className="display text-xl text-charcoal">{dish.name}</h3>
+                    <p className="mt-1 text-[0.8rem] leading-relaxed text-muted">{dish.sub}</p>
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {dish.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="border border-charcoal/12 px-2.5 py-1 text-[0.58rem] uppercase tracking-[0.16em] text-charcoal/55"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* ══ SERVICES ══ */}
       <section id="services" className="scroll-mt-20">
