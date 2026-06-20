@@ -29,7 +29,7 @@ export function SiteHeader() {
     <header
       className={`sticky top-0 z-50 transition-all duration-500 ${
         transparent
-          ? "bg-transparent"
+          ? "bg-gradient-to-b from-[rgba(237,232,223,0.75)] to-transparent backdrop-blur-[2px]"
           : "bg-warm-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(28,27,25,0.09)]"
       }`}
     >
@@ -43,11 +43,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className={`py-1 text-[0.68rem] uppercase tracking-[0.18em] transition-colors ${
-                transparent
-                  ? "text-charcoal/60 hover:text-charcoal"
-                  : "text-charcoal/55 hover:text-charcoal"
-              }`}
+              className="py-1 text-[0.68rem] uppercase tracking-[0.18em] text-charcoal/80 transition-colors hover:text-charcoal"
             >
               {item.label}
             </a>
@@ -60,7 +56,7 @@ export function SiteHeader() {
             href="#contact"
             className={`hidden items-center gap-2 px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] transition-all duration-300 lg:flex ${
               transparent
-                ? "border border-charcoal/25 text-charcoal hover:border-gold hover:text-gold"
+                ? "border border-charcoal/40 text-charcoal hover:border-gold hover:text-gold"
                 : "bg-charcoal text-warm-white hover:bg-gold"
             }`}
           >
