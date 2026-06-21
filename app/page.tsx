@@ -60,8 +60,8 @@ export default function HomePage() {
     <>
       {/* ══ HERO ══ */}
       <section
-        className="relative overflow-hidden -mt-[72px]"
-        style={{ backgroundColor: "#ede8df", minHeight: "calc(100svh + 72px)" }}
+        className="relative overflow-hidden -mt-[72px] min-h-[calc(70vh+72px)] md:min-h-[calc(88vh+72px)]"
+        style={{ backgroundColor: "#ede8df" }}
       >
         {/* Image — full background on mobile, right column on desktop */}
         <div className="absolute inset-0 md:inset-y-0 md:right-0 md:left-[40%] md:w-auto">
@@ -91,8 +91,7 @@ export default function HomePage() {
 
         {/* Text */}
         <div
-          className="relative z-20 flex w-full max-w-7xl mx-auto px-6 md:px-10 items-end md:items-center"
-          style={{ minHeight: "calc(100svh + 72px)" }}
+          className="relative z-20 flex w-full max-w-7xl mx-auto px-6 md:px-10 items-end md:items-center min-h-[calc(70vh+72px)] md:min-h-[calc(88vh+72px)]"
         >
           <div className="w-full md:w-[46%] flex flex-col justify-end md:justify-center pt-[72px] pb-14 md:pb-16">
             <h1
