@@ -13,25 +13,28 @@ import {
 
 const SIGNATURE_DISHES = [
   {
+    src: "/food-2.jpg",
+    alt: "Grilled salmon on mixed salad with tomatoes and cucumber",
+    goal: "Weight Management",
+    name: "Grilled Salmon Salad",
+    sub: "Mixed greens · cherry tomatoes · cucumber · lemon",
+    tags: ["Low Calorie", "High Protein", "Anti-Inflammatory"],
+  },
+  {
     src: "/food-1.jpg",
-    alt: "Slow-braised lamb shank with pomegranate",
-    name: "Slow-braised Lamb",
-    sub: "Pomegranate reduction · toasted pine nuts",
-    tags: ["Michelin Technique", "Rich in Iron", "Performance Meal"],
+    alt: "Pan-seared steak with white rice and green beans",
+    goal: "Muscle Building",
+    name: "Seared Steak & Rice",
+    sub: "Chargrilled beef · white rice · sautéed green beans",
+    tags: ["High Protein", "Complex Carbs", "Iron Rich"],
   },
   {
     src: "/food-5.jpg",
-    alt: "Seared sea bass with saffron sauce",
-    name: "Seared Sea Bass",
-    sub: "Saffron & citrus velouté · micro herbs",
-    tags: ["High Protein", "Anti-Inflammatory", "Clean Ingredients"],
-  },
-  {
-    src: "/food-7.jpg",
-    alt: "Recovery bowl with salmon, edamame and avocado",
-    name: "Recovery Bowl",
-    sub: "Salmon · edamame · avocado · sesame",
-    tags: ["Macro-Balanced", "Recovery", "Omega-3 Rich"],
+    alt: "Baked salmon with quinoa and roasted sweet potato",
+    goal: "Recovery",
+    name: "Salmon Power Bowl",
+    sub: "Baked salmon · quinoa · roasted sweet potato",
+    tags: ["Omega-3 Rich", "Slow Carbs", "Anti-Inflammatory"],
   },
 ];
 
@@ -250,7 +253,10 @@ export default function HomePage() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
                     />
-                    <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent" />
+                    <span className="absolute top-3 left-3 bg-gold px-2.5 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-warm-white">
+                      {dish.goal}
+                    </span>
                   </div>
                   <div className="flex flex-col flex-1 p-4 md:p-5">
                     <h3 className="display text-lg text-charcoal md:text-xl">{dish.name}</h3>
@@ -283,43 +289,34 @@ export default function HomePage() {
             </p>
           </div>
 
-          {SERVICES.map((svc, i) => (
-            <div
-              key={svc.id}
-              className={`grid items-center gap-8 md:grid-cols-2 md:gap-16 ${
-                i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-              }`}
-            >
-              <Visual
-                src={["/service-upgrade.jpg", "/service-placement.jpg"][i] ?? undefined}
-                alt={svc.title}
-                tone={i % 2 === 0 ? "warm" : "stone"}
-                ratio="aspect-[4/3]"
-                caption={svc.title}
-              />
-              <div>
-                <span className="display text-xl text-gold">{svc.number}</span>
-                <h3 className="display mt-2 text-3xl leading-tight md:text-4xl">{svc.title}</h3>
-                <p className="mt-4 text-[0.9rem] leading-relaxed text-muted">{svc.intro}</p>
-                <ul className="mt-6 space-y-2.5">
+          <div className="grid gap-6 md:grid-cols-2">
+            {SERVICES.map((svc) => (
+              <div
+                key={svc.id}
+                className="flex flex-col border border-charcoal/10 p-8 md:p-10"
+              >
+                <span className="display text-4xl text-gold/40">{svc.number}</span>
+                <h3 className="display mt-5 text-2xl leading-tight md:text-3xl">{svc.title}</h3>
+                <p className="mt-3 text-[0.88rem] leading-relaxed text-muted">{svc.intro}</p>
+                <ul className="mt-6 space-y-2.5 flex-1">
                   {svc.points.map((p) => (
-                    <li key={p} className="flex items-center gap-3 text-[0.88rem] text-charcoal/80">
-                      <Icon name="check" className="h-4 w-4 shrink-0 text-olive" />
+                    <li key={p} className="flex items-start gap-3 text-[0.84rem] text-charcoal/80">
+                      <Icon name="check" className="mt-[2px] h-3.5 w-3.5 shrink-0 text-olive" />
                       {p}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8">
+                <div className="mt-8 pt-6 border-t border-charcoal/8">
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 border border-charcoal/25 px-6 py-3 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-charcoal transition-colors hover:border-gold hover:text-gold"
+                    className="inline-flex items-center gap-2 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-charcoal/60 transition-colors hover:text-gold"
                   >
-                    Enquire
+                    Enquire →
                   </a>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </Container>
       </section>
 
