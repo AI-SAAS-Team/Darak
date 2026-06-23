@@ -403,25 +403,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-
-          {/* Nutrition */}
-          <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:items-center md:gap-20">
-            <Visual src="/nutrition.jpg" alt="Performance plating — salmon with greens" ratio="aspect-[4/3]" caption="Performance plating" />
-            <div>
-              <Eyebrow>Nutrition</Eyebrow>
-              <h2 className="display mt-4 text-2xl leading-tight md:text-4xl">We turn science into food.</h2>
-              <p className="mt-4 text-[0.9rem] leading-relaxed text-muted">
-                DARAK works alongside your physicians, nutritionists, dieticians and performance coaches — translating their requirements into meals your kitchen can execute, and you&apos;ll actually want to eat.
-              </p>
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {["Physicians", "Nutritionists", "Dieticians", "Performance Coaches"].map((role) => (
-                  <li key={role} className="border border-charcoal/15 px-3 py-2 text-[0.68rem] uppercase tracking-[0.14em] text-charcoal/70">
-                    {role}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </Container>
       </section>
 
