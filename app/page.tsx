@@ -3,7 +3,6 @@ import { Container, Eyebrow, Section } from "@/components/ui";
 import { Icon } from "@/components/icons";
 import { Visual } from "@/components/visual";
 import {
-  FOUNDERS,
   HERO_PILLARS,
   METHOD,
   SERVICES,
@@ -433,7 +432,7 @@ export default function HomePage() {
       <Section>
         <Container>
           <div className="grid gap-10 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-20">
-            <Visual tone="dark" ratio="aspect-[4/3] md:aspect-[4/5]" caption="Our Chef · 25 years of mastery" />
+            <Visual src="/chef.jpg" alt="Our Chef" ratio="aspect-[4/3] md:aspect-[4/5]" caption="Our Chef · 25 years of mastery" />
             <div>
               <Eyebrow>Our Chef</Eyebrow>
               <h2 className="display mt-4 text-3xl leading-tight md:text-5xl">
@@ -497,38 +496,6 @@ export default function HomePage() {
           </div>
         </Container>
 
-        {/* Founders */}
-        <div className="bg-ink text-warm-white">
-          <Container className="py-16 md:py-28">
-            <div>
-              <Eyebrow className="!text-gold-soft">The Founders</Eyebrow>
-              <h2 className="display mt-4 text-3xl leading-tight md:text-5xl">Two obsessions, one standard.</h2>
-            </div>
-            <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-10">
-              {FOUNDERS.map((f) => (
-                <article key={f.name} className="flex flex-col">
-                  <Visual tone="dark" ratio="aspect-[4/3]" caption={f.name} />
-                  <div className="mt-6">
-                    <h3 className="display text-2xl md:text-3xl">{f.name}</h3>
-                    <p className="mt-1 text-[0.68rem] uppercase tracking-[0.2em] text-gold">{f.role}</p>
-                    <p className="mt-4 text-[0.9rem] leading-relaxed text-warm-white/65">{f.bio}</p>
-                    <ul className="mt-5 space-y-2">
-                      {f.expertise.map((e) => (
-                        <li key={e} className="flex items-center gap-3 text-[0.84rem] text-warm-white/75">
-                          <Icon name="check" className="h-4 w-4 shrink-0 text-gold" />
-                          {e}
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="mt-5 border-l border-gold/40 pl-4 display text-base italic text-warm-white/80 md:text-lg">
-                      &ldquo;{f.obsession}&rdquo;
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </Container>
-        </div>
       </section>
 
       {/* ══ CONTACT ══ */}
